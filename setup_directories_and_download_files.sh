@@ -6,8 +6,9 @@
 
 
 # this is the directory you want all of the project to be contained in
-ROOT="$1"
+#ROOT="$1"
 #ROOT="/users/kcochran/projects/domain_adaptation"
+ROOT="/storage/home/sfk5899/sk_dir/domain_adaptation"
 
 
 # where data will be as it is being pre-processed
@@ -16,7 +17,7 @@ RAW_DATA_DIR="$ROOT/raw_data"
 mkdir -p "$RAW_DATA_DIR"
 
 # directories will be made for each species, and for each TF within each species directory
-TFS=( "CTCF" "CEBPA" "Hnf4a" "RXRA" )
+TFS=( "CTCF"  )  #"CEBPA" "Hnf4a" "RXRA"
 GENOMES=( "mm10" "hg38" )
 
 for genome in "${GENOMES[@]}"; do

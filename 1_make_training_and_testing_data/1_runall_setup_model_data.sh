@@ -7,21 +7,26 @@
 # particular, they require the "all.all" files created by earlier scripts.
 
 
-tfs=( "CTCF" "CEBPA" "Hnf4a" "RXRA" )
-genomes=( "mm10" "hg38" )
+tfs=( "CTCF" ) #"CEBPA" "Hnf4a" "RXRA" 
+genomes=( "mm10" ) #"hg38"
 
-ROOT=$1  # root directory for project (same across all scripts)
+ROOT="/storage/home/sfk5899/sk_dir/domain_adaptation/" # root directory for project (same across all scripts)
 #ROOT="/users/kcochran/projects/domain_adaptation"
 
+cd $ROOT/cross-species-domain-adaptation/1_make_training_and_testing_data
+
+
+#************************the no sine analysis that we don't need rn
 # One script is a special exception -- we need to create some repeat files
 # for the human genome only, and the script needs an all.all file (produced by
 # previous steps) to do it. So we can pick any TF's file to pass in.
-random_tf="CTCF"  # this can be any TF you've got an all.all file for
-allall_file="$ROOT/raw_data/hg38/${random_tf}/all.all"
+
+#random_tf="CTCF"  # this can be any TF you've got an all.all file for
+#allall_file="$ROOT/raw_data/hg38/${random_tf}/all.all"
 
 # the script 1.4_make_noSINE_files_for_epochs.sh below requires the files made by
 # this script
-./1.0_make_repeat_files.sh "$ROOT" "$allall_file"
+#./1.0_make_repeat_files.sh "$ROOT" "$allall_file"
 
 
 for tf in "${tfs[@]}"; do
@@ -33,8 +38,8 @@ for tf in "${tfs[@]}"; do
 
 	# this script loops over the genomes internally,
     # because it needs to look at data from both at the same time
-	./1.3_make_species_files_for_epochs.sh "$ROOT" "$tf"  || exit 1
+	#./1.3_make_species_files_for_epochs.sh "$ROOT" "$tf"  || exit 1
 
     # this script only runs on the human genome data
-	./1.4_make_noSINE_files_for_epochs.sh "$ROOT" "$tf"  || exit 1
+	#./1.4_make_noSINE_files_for_epochs.sh "$ROOT" "$tf"  || exit 1
 done

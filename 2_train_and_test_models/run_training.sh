@@ -19,7 +19,7 @@ mkdir -p "$models_dir"
 
 ### Training Combinations To Loop Over
 
-tfs=( "CTCF" "CEBPA" "Hnf4a" "RXRA" )
+tfs=( "CTCF"  ) # "CEBPA" "Hnf4a" "RXRA"
 
 # which source species to train the model with.
 # e.g. if mm10, then the model will only see binding data from mouse

@@ -10,12 +10,12 @@ ROOT=$1  # root directory for project (same across all scripts)
 #ROOT="/users/kcochran/projects/domain_adaptation"
 
 
-TFS=( "CTCF" "CEBPA" "Hnf4a" "RXRA" )
+TFS=( "CTCF"  ) #"CEBPA" "Hnf4a" "RXRA"  <- **************************maybe get automatically instead
 GENOMES=( "mm10" "hg38" )
 
 for genome in "${GENOMES[@]}"; do
 
-  # you'll need to replace these paths with paths to your own genome fastas!
+  # you'll need to replace these paths with paths to your own genome fastas! <****************get paths to
   if [ "$genome" = "mm10" ] ; then
     GENOME_FILE="/users/kcochran/genomes/mm10_no_alt_analysis_set_ENCODE.fasta"
   else

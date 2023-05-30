@@ -56,6 +56,7 @@ if [ ! -s "$DATA_DIR/all.noBL.tmp.all" ]; then
   exit 1
 fi
 
+#only keep uniquely mappable regions
 bedtools intersect -a "$DATA_DIR/all.noBL.tmp.all" -b "$UMAP_COV_FILE" -f 1 -wa > "$DATA_DIR/all.noUM.tmp.all"
 if [ ! -s "$DATA_DIR/all.noUM.tmp.all" ]; then
   echo "Error: failed at umap intersect command."
